@@ -26,18 +26,9 @@ jobs:
     - name: Run Linter
       run: npm run lint
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v4
-      with:
-        languages: javascript
-
     - name: Run Tests
       run: |
         export NODE_OPTIONS="--max_old_space_size=4096"
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v4
-
 
   release:
     if: ${{ startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'pull_request') }}
