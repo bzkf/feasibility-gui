@@ -59,8 +59,8 @@ export class FeatureProviderService {
       this.toggleLogoClass('footer-logo', newTheme, true);
     }
     if (newTheme === 'FDPGTheme') {
-      this.setLogo('header-logo', 'assets/img/FDPG-Logo.svg', 'FDPG Logo');
-      this.setLogo('footer-logo', 'assets/img/Abide_MI_cropped.jpg', 'MII Logo');
+      this.setLogo('header-logo', 'assets/img/bzkf.jpg', 'BZKF Logo');
+      this.setLogo('footer-logo', 'assets/img/bzkf.jpg', 'BZKF Logo');
     }
   }
 
