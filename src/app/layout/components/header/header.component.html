@@ -1,15 +1,8 @@
 <num-snackbar></num-snackbar>
 <num-error-display></num-error-display>
-<mat-toolbar>
-  <div class="header-left">
-    <div class="logo-wrapper">
-      <img id="header-logo" [src]="imagePath" alt="{{ urlAlt }}" class="FDPGTheme" />
-    </div>
-    <div class="breadcrumbs-wrapper">
-      <num-breadcrumbs></num-breadcrumbs>
-    </div>
-  </div>
-  <div class="header-right">
+<mat-toolbar fxLayout="row" fxLayoutAlign="start center" color="light" fxLayoutGap="0px">
+  <img id="header-logo" src="assets/img/bzkf.jpg" alt="{{ urlAlt }}" class="FDPGTheme" />
+  <div fxFlex="100" fxLayoutAlign="end" class="margin-right">
     <num-language></num-language>
     <num-header-user-menu></num-header-user-menu>
     <num-header-portal-link></num-header-portal-link>
