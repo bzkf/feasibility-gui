@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   urlAlt: string;
   proposalPortalLink: string;
   validationResultSubscription$: Subscription;
-  imagePath = 'assets/img/FDPG-Logo.svg';
+  imagePath = 'assets/img/bzkf.jpg';
   errorCount = 0;
 
   constructor(
