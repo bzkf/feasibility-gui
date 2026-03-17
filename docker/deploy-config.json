@@ -4,8 +4,8 @@
   "authRealm": "codex-develop",
   "backendBaseUrl": "http://localhost:8090",
   "copyrightOwner": "FDPG+ Team",
-  "copyrightYear": "2026",
-  "email": "info@forschen-fuer-gesundheit.de",
+  "copyrightYear": "2025",
+  "email": "onkoRWD@bzkf.de",
   "stylesheet": "FDPGTheme",
   "version": "7.1.0"
 }
