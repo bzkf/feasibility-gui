@@ -1,7 +1,7 @@
 {
   "authBaseUrl": "http://localhost:8080",
-  "authClientId": "dataportal-webapp",
-  "authRealm": "dataportal",
+  "authClientId": "feasibility-webapp",
+  "authRealm": "feasibility",
   "backendBaseUrl": "http://localhost:8090",
   "copyrightOwner": "FDPG+ Team",
   "copyrightYear": "2025",
