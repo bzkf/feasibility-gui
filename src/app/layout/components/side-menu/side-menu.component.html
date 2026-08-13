@@ -21,8 +21,13 @@
     }
   </a>
   }
-
   <div class="num-logo-row">
+    @if (!isCollapsed()) {
+      <div class="powered-by" style="margin-right: auto;">
+        {{"NAVIGATION.POWERED_BY"| translate}}
+      </div>
+    }
+
     <button
       type="button"
       [attr.aria-label]="'APPLAYOUT.TOGGLE.LABEL' | translate"
@@ -30,10 +35,13 @@
       (click)="toggleMenu()"
     >
       @if (isSideMenuExpanded()) {
-      <fa-icon size="1x" icon="angle-double-left"></fa-icon>
-      } @if (isCollapsed()) {
-      <fa-icon size="1x" icon="angle-double-right"></fa-icon>
+        <fa-icon size="1x" icon="angle-double-left"></fa-icon>
+      }
+
+      @if (isCollapsed()) {
+        <fa-icon size="1x" icon="angle-double-right"></fa-icon>
       }
     </button>
   </div>
+
 </mat-nav-list>
