@@ -8,13 +8,21 @@ import { InfoTileComponent } from '../../../shared/components/info-tile/info-til
 import { ButtonComponent } from '../../../shared/components/button/button.component'
 import { MatTooltip } from '@angular/material/tooltip'
 import { TranslateModule } from '@ngx-translate/core'
+import { InfoBoxComponent } from '../../../shared/components/info-box/info-box.component'
 
 @Component({
   selector: 'num-about-modal',
   templateUrl: './about-modal.component.html',
   styleUrls: ['./about-modal.component.scss'],
   standalone: true,
-  imports: [ModalWindowComponent, InfoTileComponent, ButtonComponent, MatTooltip, TranslateModule],
+  imports: [
+    ModalWindowComponent,
+    InfoTileComponent,
+    ButtonComponent,
+    MatTooltip,
+    TranslateModule,
+    InfoBoxComponent,
+  ],
 })
 export class AboutModalComponent implements OnInit {
   private readonly aboutInfoBuilder = inject(AboutInfoBuilderService)

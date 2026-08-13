@@ -10,6 +10,8 @@
         "DOWNLOAD": "Informationen herunterladen",
         "EMAIL": "E-Mail",
         "ONTOLOGY": "Ontologie",
+        "DEVELOPER": "Entwickler",
+        "DEVELOPER_ACKNOWLEDGEMENT": "Diese Plattform basiert zu großen Teilen auf dem Forschungsdatenportal für Gesundheit (FDPG), das im Rahmen der Medizininformatik-Initiative entwickelt wurde. Der Betrieb und die Weiterentwicklung dieses Portals durch das BZKF sind nur durch die Unterstützung des FDPG+ Teams möglich.",
         "UI": "UI",
         "VERSION": "Version"
       },
@@ -86,7 +88,7 @@
         "JUMP_TO_DATASELECTION": "Zur Merkmalselektion",
         "JUMP_TO_DATASELECTION_TOOLTIP": "Zur Merkmalselektion navigieren",
         "NEW_COHORT": "Neue Kohorte",
-        "NEW_COHORT_TOOLTIP": "Neue Kohortenselektion erstellen",
+        "NEW_COHORT_TOOLTIP": "Neue Kohortenselektion",
         "SEND_QUERY": "Machbarkeitsabfrage",
         "SEND_QUERY_TOOLTIP": "Machbarkeitsabfrage für diese Kohorte ausführen"
       },
@@ -445,7 +447,8 @@
     "QUERYBUILDER_EDITOR": "Kohortenselektion",
     "QUERYBUILDER_OVERVIEW": "Gespeicherte Datendefinitionen",
     "QUERYBUILDER_RESULT": "Machbarkeitsabfrage senden",
-    "SIGNOUT": "Abmelden"
+    "SIGNOUT": "Abmelden",
+    "POWERED_BY": "Mit Unterstützung des FDPG+ Teams"
   },
   "SAVED_QUERIES": {
     "COMMENT": "Kommentar",
