@@ -10,6 +10,8 @@
         "DOWNLOAD": "Download Information",
         "EMAIL": "Email",
         "ONTOLOGY": "Ontology",
+        "DEVELOPER": "Developer",
+        "DEVELOPER_ACKNOWLEDGEMENT": "This platform is largely based on the Research Data Portal for Health (FDPG), which was developed as part of the Medical Informatics Initiative. The operation and continued development of this portal by the BZKF are only possible thanks to the support of the FDPG team.\n",
         "UI": "UI",
         "VERSION": "Version"
       },
@@ -163,7 +165,7 @@
     },
     "SEARCH": {
       "ACTION_BAR": {
-        "ADD": "Add to Selection",
+        "ADD": "Add to Feature Selection",
         "ADD_TOOLTIP": "Add selected profiles to feature selection",
         "JUMP_TO_DATASELECTION": "Show Selection",
         "JUMP_TO_DATASELECTION_TOOLTIP": "Navigate to editor to edit selected features"
@@ -456,6 +458,7 @@
     "QUERYBUILDER_EDITOR": "Cohort Selection",
     "QUERYBUILDER_OVERVIEW": "Saved data definitions",
     "QUERYBUILDER_RESULT": "Send Feasibility Query",
+    "POWERED_BY": "Powered by the FDPG+ team",
     "SIGNOUT": "Sign Out"
   },
   "SAVED_QUERIES": {
