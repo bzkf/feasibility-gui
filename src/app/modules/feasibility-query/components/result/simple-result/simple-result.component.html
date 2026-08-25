@@ -1,5 +1,5 @@
 <div class="container padding-1">
-  @if (totalNumberOfPatients) {
+  @if (totalNumberOfPatients !== null && totalNumberOfPatients !== undefined) {
   <num-patient-count [totalNumberOfPatients]="totalNumberOfPatients"></num-patient-count>
   }
   <div class="action-row">
