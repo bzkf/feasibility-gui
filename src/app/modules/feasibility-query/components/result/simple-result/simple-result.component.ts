@@ -97,7 +97,8 @@ export class SimpleResultComponent implements OnInit, OnDestroy {
     this.initializeState()
     this.doSendSusbscription?.unsubscribe()
 
-    this.startExpirationTimer(90 * 1000)
+    const expirationTime = this.appSettingsProviderService.getQueryResultExpiry()
+    this.startExpirationTimer(expirationTime * 1000)
     const obs = this.feasibilityQueryResultService.doSendQueryRequest()
 
     this.doSendSusbscription = this.createDoSendSubscription(obs)
