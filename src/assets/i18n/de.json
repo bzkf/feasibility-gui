@@ -630,7 +630,8 @@
       "TITLE": "Titel"
     },
     "SEARCH": {
-      "MIN_LENGTH": "Bitte mindestens drei Buchstaben eingeben"
+      "MIN_LENGTH": "Bitte mindestens drei Buchstaben eingeben",
+      "DEFAULT_LABEL": "Suchtext eingeben"
     },
     "TABLE": {
       "ACTIONS": "Aktionen",

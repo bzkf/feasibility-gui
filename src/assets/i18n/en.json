@@ -641,6 +641,7 @@
       "TITLE": "Title"
     },
     "SEARCH": {
+      "DEFAULT_LABEL": "Enter search text",
       "MIN_LENGTH": "Required length of 3 letters"
     },
     "TABLE": {
