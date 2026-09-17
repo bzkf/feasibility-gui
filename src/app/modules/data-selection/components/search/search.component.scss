@@ -32,14 +32,6 @@
 .margin-right-20 {
   margin-right: 20px;
 }
-::ng-deep.mat-badge-content {
-  border: 1px solid var(--num-color--primary-green);
-  color: var(--num-color--primary-green);
-  background-color: white;
-  width: 26px !important;
-  height: 26px !important;
-  border-radius: 25%;
-}
 
 .result-container {
   width: 100%;
