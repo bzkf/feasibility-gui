@@ -5,6 +5,7 @@ import { Component, computed, DestroyRef, inject } from '@angular/core'
 import { CriteriaListEntry } from 'src/app/model/Search/ListEntries/CriteriaListListEntry'
 import { Criterion } from 'src/app/model/FeasibilityQuery/Criterion/Criterion'
 import { FeasibilityQueryProviderHub } from 'src/app/service/Provider/FeasibilityQueryProviderHub'
+import { FeasibilityQueryValidationService } from 'src/app/service/Validation/Internal/FeasibilityQueryValidationService.service'
 import { MatBadge } from '@angular/material/badge'
 import { MatTooltip } from '@angular/material/tooltip'
 import { NavigationHelperService } from 'src/app/service/NavigationHelper.service'
@@ -14,7 +15,6 @@ import { StageProviderService } from 'src/app/service/Provider/StageProvider.ser
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop'
 import { tap } from 'rxjs'
 import { TranslateModule } from '@ngx-translate/core'
-import { FeasibilityQueryValidationService } from 'src/app/service/Validation/Internal/FeasibilityQueryValidationService.service'
 
 @Component({
   selector: 'num-search-action-bar',

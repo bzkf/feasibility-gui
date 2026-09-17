@@ -25,16 +25,11 @@
     }
   </mat-drawer>
   @if (listItems()?.length > 0) {
-  <mat-drawer-content
-    infiniteScroll
-    [infiniteScrollDistance]="0.5"
-    [infiniteScrollThrottle]="50"
-    [scrollWindow]="false"
-    (scrolled)="loadMoreCriteriaSearchResults()"
-  >
+  <mat-drawer-content>
     <num-table
       (selectedRow)="setSelectedRowItem($event)"
       (rowClicked)="setClickedRow($event)"
+      (loadMore)="loadMoreCriteriaSearchResults()"
       [tableData]="adaptedData()"
     ></num-table>
   </mat-drawer-content>
@@ -42,9 +37,10 @@
 </mat-drawer-container>
 } @if (!searchResultsFound()) {
 <div class="no-results-box">
-  <num-placeholder-box
-    >{{ 'FEASIBILITY.SEARCH.EMPTY' | translate }} "<strong>{{ searchText() }}</strong
-    >"</num-placeholder-box
-  >
+  <num-placeholder-box>
+    {{ 'FEASIBILITY.SEARCH.EMPTY' | translate }} "
+    <strong>{{ searchText() }}</strong>
+    "
+  </num-placeholder-box>
 </div>
 }

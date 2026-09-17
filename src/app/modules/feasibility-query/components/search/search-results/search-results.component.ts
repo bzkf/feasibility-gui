@@ -7,7 +7,6 @@ import { CriteriaListEntryAdapter } from 'src/app/shared/models/TableData/Adapte
 import { CriteriaListItemDetailsAdapter } from 'src/app/shared/models/ListItemDetails/Adapter/CriteriaListItemDetailsAdapter'
 import { CriteriaSearchService } from 'src/app/service/Search/SearchTypes/Criteria/CriteriaSearch.service'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { InfiniteScrollDirective } from 'ngx-infinite-scroll'
 import { ListItemDetailsData } from 'src/app/shared/models/ListItemDetails/ListItemDetailsData'
 import { ListItemDetailsGenericComponent } from '../../../../../shared/components/list-item-details-generic/list-item-details-generic.component'
 import { ListItemDetailsRelativeData } from 'src/app/shared/models/ListItemDetails/ListItemDetailsRelative'
@@ -38,7 +37,6 @@ import { MenuItemInterface } from 'src/app/shared/models/Menu/MenuItemInterface'
     FontAwesomeModule,
     ListItemDetailsGenericComponent,
     MatDrawerContent,
-    InfiniteScrollDirective,
     TableComponent,
     PlaceholderBoxComponent,
     TranslateModule,
