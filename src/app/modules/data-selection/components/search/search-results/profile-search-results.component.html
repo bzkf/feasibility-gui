@@ -23,17 +23,11 @@
       </div>
       }
     </mat-drawer>
-    <mat-drawer-content
-      class="results-container"
-      infiniteScroll
-      [infiniteScrollDistance]="0.5"
-      [infiniteScrollThrottle]="50"
-      [scrollWindow]="false"
-      (scrolled)="loadMoreSearchResults()"
-    >
+    <mat-drawer-content class="results-container">
       <num-table
         (rowClicked)="loadEntry($event)"
         (selectedRow)="onRowSelected($event)"
+        (loadMore)="loadMoreSearchResults()"
         [tableData]="adaptedData()"
         [triggerSelectAll]="triggerSelectAll"
         (selectAll)="selectAll($event)"

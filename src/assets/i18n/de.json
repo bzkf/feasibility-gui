@@ -41,6 +41,11 @@
       "LOGOUT": "Abmelden",
       "PROPOSAL_PORTAL": "Antragsportal",
       "PROPOSAL_PORTAL_TOOLTIP": "Antragsportal in einem neuen Tab öffnen",
+      "SESSION_TIMER": {
+        "LOGGED_IN": "Angemeldet seit",
+        "LOGOUT_IN": "Automatische Abmeldung in",
+        "TOOLTIP": "Sie sind seit {{ loggedInDuration }} angemeldet. Sie werden in {{ logoutIn }} automatisch abgemeldet, sofern Sie nicht aktiv bleiben."
+      },
       "UPGRADE_LOG": {
         "LABEL": "Upgrade-Protokoll",
         "MODAL": {

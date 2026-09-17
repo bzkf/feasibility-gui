@@ -4,7 +4,11 @@
   class="table-border height-3-rem table-row-hover"
 >
   @for (cell of row.cells; track j; let j = $index) {
-  <td (click)="onRowClick(row)" [ngClass]="{ 'table-row-text-color': j > 0 }">
+  <td
+    (click)="onRowClick(row)"
+    [ngClass]="{ 'table-row-text-color': j > 0 }"
+    [style.width.%]="getWidth(row.cells, j)"
+  >
     <div class="row-container">
       @switch (cell.type) { @case (TableCellKind.CHECKBOX) {
       <num-checkbox-cell [cell]="cell" (checkboxChange)="onCheckboxSelect(row)"></num-checkbox-cell>

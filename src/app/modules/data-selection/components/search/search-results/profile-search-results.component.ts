@@ -1,7 +1,6 @@
 import { Component, computed, inject, input, output, signal, viewChild } from '@angular/core'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { CheckboxTextCellData } from 'src/app/shared/models/TableData/Cells/Data/CheckboxTextCellData'
-import { InfiniteScrollDirective } from 'ngx-infinite-scroll'
 import { ListItemDetailsData } from 'src/app/shared/models/ListItemDetails/ListItemDetailsData'
 import { ListItemDetailsGenericComponent } from 'src/app/shared/components/list-item-details-generic/list-item-details-generic.component'
 import { map, tap } from 'rxjs'
@@ -33,7 +32,6 @@ import { ProfileSearchEngineService } from '../../../../../service/Search/Search
     MatDrawerContainer,
     MatDrawer,
     MatDrawerContent,
-    InfiniteScrollDirective,
     TableComponent,
     ListItemDetailsGenericComponent,
     FontAwesomeModule,

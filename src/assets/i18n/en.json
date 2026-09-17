@@ -41,6 +41,11 @@
       "LOGOUT": "Log Out",
       "PROPOSAL_PORTAL": "Proposal Portal",
       "PROPOSAL_PORTAL_TOOLTIP": "Open the Proposal Portal in a new tab",
+      "SESSION_TIMER": {
+        "LOGGED_IN": "Logged in",
+        "LOGOUT_IN": "Automatic logout in",
+        "TOOLTIP": "You have been logged in for {{ loggedInDuration }}. You will be automatically logged out in {{ logoutIn }} unless you stay active."
+      },
       "UPGRADE_LOG": {
         "LABEL": "Upgrade Log",
         "MODAL": {

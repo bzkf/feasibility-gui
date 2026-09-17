@@ -7,7 +7,6 @@ import { CodeableConceptSearchService } from 'src/app/service/Search/SearchTypes
 import { Component, DestroyRef, effect, inject, input, output } from '@angular/core'
 import { Concept } from 'src/app/model/FeasibilityQuery/Criterion/AttributeFilter/Concept/Concept'
 import { filter, map, switchMap } from 'rxjs'
-import { InfiniteScrollDirective } from 'ngx-infinite-scroll'
 import { PlaceholderBoxComponent } from '../../../../../shared/components/placeholder-box/placeholder-box.component'
 import { SelectedConceptFilterProviderService } from '../../../service/ConceptFilter/SelectedConceptFilterProvider.service'
 import { TableComponent } from '../../../../../shared/components/table/table.component'
@@ -22,7 +21,7 @@ import { TableCellKind } from '../../../../../shared/models/TableData/Cells/Tabl
   templateUrl: './concept-filter-table.component.html',
   styleUrls: ['./concept-filter-table.component.scss'],
   standalone: true,
-  imports: [InfiniteScrollDirective, TableComponent, PlaceholderBoxComponent, TranslateModule],
+  imports: [TableComponent, PlaceholderBoxComponent, TranslateModule],
 })
 export class ConceptFilterTableComponent {
   private readonly destroyRef = inject(DestroyRef)
