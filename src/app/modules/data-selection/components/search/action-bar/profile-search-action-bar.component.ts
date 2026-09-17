@@ -1,9 +1,9 @@
 import { ActionBarComponent } from '../../../../../shared/components/action-bar/action-bar.component'
 import { ButtonComponent } from '../../../../../shared/components/button/button.component'
-import { Component, computed, inject } from '@angular/core'
+import { Component, computed, inject, signal } from '@angular/core'
 import { DataSelectionProviderService } from '../../../../../service/Provider/DataSelectionProvider.service'
 import { LoadDataSelectionProfilesService } from 'src/app/service/DataSelection/LoadDataSelectionProfiles.service'
-import { map } from 'rxjs'
+import { finalize, map } from 'rxjs'
 import { MatBadge } from '@angular/material/badge'
 import { MatTooltip } from '@angular/material/tooltip'
 import { NavigationHelperService } from 'src/app/service/NavigationHelper.service'
@@ -38,12 +38,22 @@ export class ProfileSearchActionBarComponent {
 
   private subscription?: Subscription
 
+  private readonly isLoadingSelectedProfiles = signal(false)
+
+  readonly canNavigateToDataSelection = computed(
+    () => this.dataSelectionProfileCount() > 0 && !this.isLoadingSelectedProfiles()
+  )
+
   public loadSelectedProfiles(): void {
     const urls = this.selectedProfiles().map((profile) => profile.getUrl())
-    this.subscription = this.loadDataSelectionProfilesService.loadProfiles(urls).subscribe(() => {
-      this.selectedProfileService.clearSelection()
-      this.snackbarMessageService.displayAddedToDataSelection()
-    })
+    this.isLoadingSelectedProfiles.set(true)
+    this.subscription = this.loadDataSelectionProfilesService
+      .loadProfiles(urls)
+      .pipe(finalize(() => this.isLoadingSelectedProfiles.set(false)))
+      .subscribe(() => {
+        this.selectedProfileService.clearSelection()
+        this.snackbarMessageService.displayAddedToDataSelection()
+      })
   }
 
   public navigateToDataSelection(): void {
