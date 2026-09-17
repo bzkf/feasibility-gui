@@ -51,7 +51,7 @@ export class SearchbarComponent {
     })
   }
 
-  readonly label = input<string | undefined>(undefined)
+  readonly label = input<string | undefined>('SHARED_COMPONENTS.SEARCH.DEFAULT_LABEL')
   readonly minLength = input<number>(3)
   readonly searchText = input<string>('')
   readonly searchTextChange = output<string>()

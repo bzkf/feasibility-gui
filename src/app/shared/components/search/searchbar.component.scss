@@ -71,8 +71,4 @@
 /* Warning message */
 .search-warning {
   color: var(--num-color--warn, var(--num-color--red, #b30519));
-  visibility: hidden;
-}
-.search-warning.visible {
-  visibility: visible;
 }

@@ -10,7 +10,9 @@
       class="input-design"
     />
   </div>
-  <span [class.visible]="showWarning()" class="search-warning">
+  @if (showWarning()) {
+  <span class="search-warning">
     {{ 'SHARED_COMPONENTS.SEARCH.MIN_LENGTH' | translate }}
   </span>
+  }
 </div>
