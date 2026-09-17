@@ -185,6 +185,8 @@
         "REFERENCE_TOOLTIP_TITLE": "Only if referenced",
         "RENAME_FEATURE": "Rename Feature",
         "REQUIRED": "Required",
+        "SEARCH_MATCH_BY_FIELD": "{{ count }} by field",
+        "SEARCH_MATCH_BY_NAME": "{{ count }} by name",
         "SELECTED_FIELDS": "Selected fields",
         "SELECTED_FIELDS_TOOLTIP_TEXT": "Fields are the specific data points of a profile, e.g. diagnosis code or date. Pre-selected fields have been predefined based on typical research requirements. You can add further fields or remove ones you don't need.",
         "SELECTED_FIELDS_TOOLTIP_TITLE": "Selected Fields"

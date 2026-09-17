@@ -185,6 +185,8 @@
         "REFERENCE_TOOLTIP_TITLE": "Nur wenn referenziert",
         "RENAME_FEATURE": "Merkmal umbenennen",
         "REQUIRED": "Erforderlich",
+        "SEARCH_MATCH_BY_FIELD": "{{ count }} nach Feld",
+        "SEARCH_MATCH_BY_NAME": "{{ count }} nach Name",
         "SELECTED_FIELDS": "Selektierte Felder",
         "SELECTED_FIELDS_TOOLTIP_TEXT": "Felder sind die konkreten Datenpunkte eines Merkmals, z. B. Diagnose-Code oder Datum. Die vorausgewählten Felder wurden anhand typischer Forschungsanforderungen vordefiniert. Sie können weitere Felder hinzufügen oder nicht benötigte entfernen.",
         "SELECTED_FIELDS_TOOLTIP_TITLE": "Selektierte Felder"
