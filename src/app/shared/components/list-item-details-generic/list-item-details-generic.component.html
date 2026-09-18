@@ -14,13 +14,13 @@
       </div>
 
       <!-- Translations -->
-      @if (data.display?.getTranslations()?.length) {
       <div class="detail-row divider">
-        <div class="detail-label">
+        <div class="detail-label num-text-label">
           {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.TRANSLATIONS' | translate }}
         </div>
-        <div class="detail-value">
-          @for (t of data.display.getTranslations(); track t.getLanguage()) {
+        @if (translations().length) {
+        <div class="detail-value num-text-body">
+          @for (t of translations(); track t.getLanguage()) {
           <div class="translation-entry">
             <span
               class="fi"
@@ -33,34 +33,40 @@
           </div>
           }
         </div>
-      </div>
-      } @if(data.description) {
-      <div class="detail-row divider">
-        <div class="detail-label">
-          {{ 'Description' | translate }}
+        } @else {
+        <div class="num-text-accent">
+          {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.NO_TRANSLATIONS' | translate }}
         </div>
-        {{ data.description | displayTranslation }}
+        }
       </div>
-
+      @if(data.description) {
+      <div class="detail-row divider">
+        <div class="detail-label num-text-label">
+          {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.DESCRIPTION' | translate }}
+        </div>
+        <div class="detail-value num-text-body">
+          {{ data.description | displayTranslation }}
+        </div>
+      </div>
       }
       <!-- Fields -->
       @if (data.fields) {
       <div class="detail-row divider">
-        <div class="detail-label">
+        <div class="detail-label num-text-label">
           {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.FIELDS' | translate }}
         </div>
-        <div class="detail-value">
-          {{ displayFields }}
+        <div class="detail-value num-text-body">
+          {{ displayFields() }}
         </div>
       </div>
       }
       <!-- Parents -->
-      <div class="detail-row divider">
-        <div class="detail-label">
+      <div class="detail-row divider" [class.relatives-row]="parents.length">
+        <div class="detail-label num-text-label">
           {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.PARENTS' | translate }}
         </div>
         @if (parents.length) {
-        <div class="detail-value">
+        <div class="detail-value relatives-value">
           <num-list-item-details-generic-sections
             [listItemDetails]="parents"
             [menuItems]="menuItems()"
@@ -75,12 +81,12 @@
       </div>
 
       <!-- Children -->
-      <div class="detail-row">
-        <div class="detail-label">
+      <div class="detail-row" [class.relatives-row]="children.length">
+        <div class="detail-label num-text-label">
           {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.CHILDREN' | translate }}
         </div>
         @if (children.length) {
-        <div class="detail-value">
+        <div class="detail-value relatives-value">
           <num-list-item-details-generic-sections
             [listItemDetails]="children"
             [menuItems]="menuItems()"
@@ -141,6 +147,7 @@
     <div class="tab-content">
       <num-list-item-details-generic-sections
         [listItemDetails]="fielTab"
+        [showSearch]="true"
         (selectedRelative)="getSelectedRelative($event)"
       />
     </div>

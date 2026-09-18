@@ -2,9 +2,9 @@
 import { Component, effect, input, output } from '@angular/core'
 import { TableData } from '../../../models/TableData/TableData'
 import { TranslateModule } from '@ngx-translate/core'
-import { TableCellKind } from '../../../models/TableData/Cells/TableCellKind'
 import { CheckboxComponent } from '../../checkbox/checkbox.component'
 import { MatTooltip } from '@angular/material/tooltip'
+import { getColumnWidthPercent } from '../table-column-width.util'
 
 @Component({
   selector: '[num-table-header]',
@@ -29,27 +29,8 @@ export class TableHeaderComponent {
     })
   }
 
-  public getWidth(index: number): number {
-    const cellType = this.tableData()?.body?.rows[0]?.cells[index]?.type
-    const tableData = this.tableData()
-    const iconOrCheckbox = tableData?.body?.rows[0]?.cells?.filter(
-      (cell) => cell.type === 'icon' || cell.type === 'checkbox'
-    ).length
-    const iconOrCheckboxWidth = 2
-
-    switch (cellType) {
-      case TableCellKind.ICON:
-      case TableCellKind.CHECKBOX:
-        return iconOrCheckboxWidth
-      case TableCellKind.TEXT:
-      case TableCellKind.DISPLAY:
-      case TableCellKind.CHECKBOXTEXT:
-      case TableCellKind.AVAILABILITY:
-        return (
-          (100 - iconOrCheckbox * iconOrCheckboxWidth) /
-          (tableData?.body?.rows[0]?.cells?.length - iconOrCheckbox)
-        )
-    }
+  public getWidth(index: number): number | undefined {
+    return getColumnWidthPercent(this.tableData()?.body?.rows[0]?.cells, index)
   }
   public onCheckboxAllChange(): void {
     this.checkBoxAll = !this.checkBoxAll

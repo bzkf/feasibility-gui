@@ -53,6 +53,9 @@ export const FEASIBILITY_QUERY_ROUTES: Routes = [
       import('./components/search/bulk/bulk-search.component').then(
         (m) => m.FeasibilityQueryBulkSearchComponent
       ),
+    resolve: {
+      preLoadCriteriaFilter: CriteriaSearchFilterResolverService,
+    },
     data: {
       animation: 'Feasibility_Bulk_Search',
       title: 'TAB_TITLE.FEASIBILITY_QUERY.SEARCH',

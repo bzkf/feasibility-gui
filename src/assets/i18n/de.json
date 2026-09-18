@@ -41,6 +41,11 @@
       "LOGOUT": "Abmelden",
       "PROPOSAL_PORTAL": "Antragsportal",
       "PROPOSAL_PORTAL_TOOLTIP": "Antragsportal in einem neuen Tab öffnen",
+      "SESSION_TIMER": {
+        "LOGGED_IN": "Angemeldet seit",
+        "LOGOUT_IN": "Automatische Abmeldung in",
+        "TOOLTIP": "Sie sind seit {{ loggedInDuration }} angemeldet. Sie werden in {{ logoutIn }} automatisch abgemeldet, sofern Sie nicht aktiv bleiben."
+      },
       "UPGRADE_LOG": {
         "LABEL": "Upgrade-Protokoll",
         "MODAL": {
@@ -143,6 +148,10 @@
       },
       "HEADER": "Merkmalselektion",
       "SAVE": {
+        "CRTDL_DESCRIPTION": "Maschinenlesbare Abfragedefinition (JSON)",
+        "CRTDL_TITLE": "Als CRTDL",
+        "CSV_DESCRIPTION": "Kohorten- und Merkmalselektion als CSV-Dateien in einer ZIP Datei",
+        "CSV_TITLE": "Als Projektzusammenfassung",
         "HEADER": "Aktuelle Datendefinition herunterladen"
       },
       "SUCCESS": {
@@ -180,6 +189,8 @@
         "REFERENCE_TOOLTIP_TITLE": "Nur wenn referenziert",
         "RENAME_FEATURE": "Merkmal umbenennen",
         "REQUIRED": "Erforderlich",
+        "SEARCH_MATCH_BY_FIELD": "{{ count }} nach Feld",
+        "SEARCH_MATCH_BY_NAME": "{{ count }} nach Name",
         "SELECTED_FIELDS": "Selektierte Felder",
         "SELECTED_FIELDS_TOOLTIP_TEXT": "Felder sind die konkreten Datenpunkte eines Merkmals, z. B. Diagnose-Code oder Datum. Die vorausgewählten Felder wurden anhand typischer Forschungsanforderungen vordefiniert. Sie können weitere Felder hinzufügen oder nicht benötigte entfernen.",
         "SELECTED_FIELDS_TOOLTIP_TITLE": "Selektierte Felder"
@@ -268,7 +279,7 @@
     "FEAS-10001": "Ihr Account wurde wegen zu vieler Abfragen gesperrt, bitte wenden Sie sich an info@forschen-fuer-gesundheit.de",
     "FEAS-10002": "Sie haben zu viele Abfragen gestellt, bitte warten Sie und probieren Sie es erneut.",
     "FEAS-10003": "Sie haben zu viele Abfragen gestellt, bitte warten Sie und probieren Sie es erneut.",
-    "FEAS-10004": "Die Ergebnismenge ist zu klein. Das Ergebnis wird nicht angezeigt.",
+    "FEAS-10004": "Patientenanzahl zu niedrig für detaillierte Ergebnisse.",
     "FEAS-10005": "Die Anzahl der antwortenden Standorte ist zu klein. Das Detailergebnis wird nicht angezeigt.",
     "FEAS-10006": "Sie haben zu viele Kohorten gespeichert, bitte löschen Sie Kohortenselektionen, bevor Sie weitere speichern.",
     "VAL-20001": "Die Kombination aus Kontext und Termcode(s) wurde nicht gefunden."
@@ -586,15 +597,16 @@
     },
     "MENU": {
       "ADD": "Zur Kohortenselektion hinzufügen",
+      "ADD_PROFILE": "Zur Merkmalselektion hinzufügen",
       "APPLY_FILTERS": "Filter anwenden",
       "DEFINE_FIELDS": "Felder selektieren",
       "DELETE": "Löschen",
       "DUPLICATE": "Duplizieren",
-      "EDIT": "Filter setzen",
+      "EDIT": "Konfigurieren",
       "OPTIONS": "Optionen",
       "REFERENCE": "Kriterien verknüpfen",
       "SEARCH": "Als Suchbegriff nutzen",
-      "SEARCH_PROFILE": "Profile als Suchbegriff nutzen",
+      "SEARCH_PROFILE": "Profil als Suchbegriff nutzen",
       "SHOW_CRITERIA": "Kriterium anzeigen",
       "SHOW_PROFILE": "Profil anzeigen"
     },
@@ -622,14 +634,14 @@
       "CANCEL": "Abbrechen",
       "COHORT_WARNING": "Kohortenselektion ist erforderlich",
       "COMMENT": "Kommentar",
-      "DOWNLOAD": "als JSON-Datei",
-      "DOWNLOAD_CSV": "als CSV (zip)",
+      "DOWNLOAD": "Herunterladen",
       "HEADER": "Abfrage speichern",
       "LABEL": "Titel",
       "SAVE": "Speichern",
       "TITLE": "Titel"
     },
     "SEARCH": {
+      "DEFAULT_LABEL": "Suchtext eingeben",
       "MIN_LENGTH": "Bitte mindestens drei Buchstaben eingeben"
     },
     "TABLE": {

@@ -1,7 +1,16 @@
 /* Table base */
+:host {
+  display: block;
+  height: 100%;
+  min-height: 0;
+}
+
 table {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
   width: 100%;
-  table-layout: fixed;
   font-family: 'Open Sans', sans-serif;
   color: #000000;
   background-color: #fff;
@@ -9,9 +18,14 @@ table {
   border-collapse: collapse;
 }
 
-.sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background-color: #fff;
+thead {
+  display: block;
+  flex-shrink: 0;
+}
+
+tbody {
+  display: block;
+  flex: 1;
+  min-height: 0;
+  overflow-y: scroll;
 }

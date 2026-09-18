@@ -41,6 +41,11 @@
       "LOGOUT": "Log Out",
       "PROPOSAL_PORTAL": "Proposal Portal",
       "PROPOSAL_PORTAL_TOOLTIP": "Open the Proposal Portal in a new tab",
+      "SESSION_TIMER": {
+        "LOGGED_IN": "Logged in",
+        "LOGOUT_IN": "Automatic logout in",
+        "TOOLTIP": "You have been logged in for {{ loggedInDuration }}. You will be automatically logged out in {{ logoutIn }} unless you stay active."
+      },
       "UPGRADE_LOG": {
         "LABEL": "Upgrade Log",
         "MODAL": {
@@ -143,6 +148,10 @@
       },
       "HEADER": "Feature Selection",
       "SAVE": {
+        "CRTDL_DESCRIPTION": "Machine-readable query definition (JSON)",
+        "CRTDL_TITLE": "As CRTDL",
+        "CSV_DESCRIPTION": "Cohort and data selection as CSV files in a ZIP file",
+        "CSV_TITLE": "As project summary",
         "HEADER": "Download current data definition"
       },
       "SUCCESS": {
@@ -180,6 +189,8 @@
         "REFERENCE_TOOLTIP_TITLE": "Only if referenced",
         "RENAME_FEATURE": "Rename Feature",
         "REQUIRED": "Required",
+        "SEARCH_MATCH_BY_FIELD": "{{ count }} by field",
+        "SEARCH_MATCH_BY_NAME": "{{ count }} by name",
         "SELECTED_FIELDS": "Selected fields",
         "SELECTED_FIELDS_TOOLTIP_TEXT": "Fields are the specific data points of a profile, e.g. diagnosis code or date. Pre-selected fields have been predefined based on typical research requirements. You can add further fields or remove ones you don't need.",
         "SELECTED_FIELDS_TOOLTIP_TITLE": "Selected Fields"
@@ -279,7 +290,7 @@
     "FEAS-10001": "Your account has been locked due to too many queries. Please contact info@research-for-health.de",
     "FEAS-10002": "You have made too many queries. Please wait and try again.",
     "FEAS-10003": "You have made too many queries. Please wait and try again.",
-    "FEAS-10004": "The result set is too small; results will not be displayed.",
+    "FEAS-10004": "Patient number too low for detailed results.",
     "FEAS-10005": "The number of responding locations is too small; detailed results will not be displayed.",
     "FEAS-10006": "You have saved too many cohorts. Please delete some cohort selections before saving more.",
     "VAL-20001": "The combination of context and term code(s) was not found."
@@ -603,7 +614,7 @@
       "DEFINE_FIELDS": "Select fields",
       "DELETE": "Delete",
       "DUPLICATE": "Duplicate",
-      "EDIT": "Set Filter",
+      "EDIT": "Configure",
       "OPTIONS": "Options",
       "REFERENCE": "Link criteria",
       "SEARCH": "Use as search term",
@@ -633,14 +644,14 @@
       "CANCEL": "Cancel",
       "COHORT_WARNING": "Cohort selection is required",
       "COMMENT": "Comment",
-      "DOWNLOAD": "as JSON-File",
-      "DOWNLOAD_CSV": "as CSV (zip)",
+      "DOWNLOAD": "Download",
       "HEADER": "Save query",
       "LABEL": "Title",
       "SAVE": "Save",
       "TITLE": "Title"
     },
     "SEARCH": {
+      "DEFAULT_LABEL": "Enter search text",
       "MIN_LENGTH": "Required length of 3 letters"
     },
     "TABLE": {

@@ -9,6 +9,11 @@
   ></thead>
   <tbody
     num-table-body
+    infiniteScroll
+    [infiniteScrollDistance]="infiniteScrollDistance()"
+    [infiniteScrollThrottle]="infiniteScrollThrottle()"
+    [scrollWindow]="false"
+    (scrolled)="loadMore.emit()"
     [rows]="tableData().body.rows"
     (rowClicked)="rowClicked.emit($event)"
     (selectedRow)="selectedRow.emit($event)"

@@ -11,7 +11,7 @@
     {{ 'DATASELECTION.SEARCH.ACTION_BAR.ADD' | translate }}
   </num-button>
   <num-button
-    [isDisabled]="dataSelectionProfileCount() === 0"
+    [isDisabled]="!canNavigateToDataSelection()"
     [icon]="'arrow-down'"
     (click)="navigateToDataSelection()"
     type="green"

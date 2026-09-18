@@ -9,6 +9,8 @@ import { TableRowData } from 'src/app/shared/models/TableData/TableRowData'
 import { TextCellComponent } from '../cells/text-cell/text-cell.component'
 import { CheckboxCellComponent } from '../../shared-components.module'
 import { TableCellKind } from '../../../models/TableData/Cells/TableCellKind'
+import { TableCellUnion } from '../../../models/TableData/Cells/TableCellUnion'
+import { getColumnWidthPercent } from '../table-column-width.util'
 
 /* eslint-disable @angular-eslint/component-selector */
 
@@ -42,6 +44,10 @@ export class TableBodyComponent {
 
   public onRowClick(row: TableRowData): void {
     this.rowClicked.emit(row)
+  }
+
+  public getWidth(cells: TableCellUnion[], index: number): number | undefined {
+    return getColumnWidthPercent(cells, index)
   }
 
   public onCheckboxSelect(row: TableRowData): void {

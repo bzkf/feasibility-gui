@@ -20,7 +20,7 @@ export class ProfileListItemDetailsMenuService extends AbstractMenuItemsService<
       {
         disabled: !selectable,
         icon: 'plus',
-        label: 'ADD',
+        label: 'ADD_PROFILE',
         action: (id: string) => this.listItemDetailsFunctionService.addToDataSelection(id),
       },
     ]

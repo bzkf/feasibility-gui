@@ -1,5 +1,6 @@
 import { CheckboxTextCellData } from 'src/app/shared/models/TableData/Cells/Data/CheckboxTextCellData'
 import { Component, input, output } from '@angular/core'
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll'
 import { TableBodyComponent } from './table-body/table-body.component'
 import { TableCellKind } from '../../models/TableData/Cells/TableCellKind'
 import { TableData } from 'src/app/shared/models/TableData/TableData'
@@ -11,7 +12,7 @@ import { TableRowData } from '../../models/TableData/TableRowData'
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   standalone: true,
-  imports: [TableHeaderComponent, TableBodyComponent],
+  imports: [TableHeaderComponent, TableBodyComponent, InfiniteScrollDirective],
 })
 export class TableComponent {
   readonly tableData = input.required<TableData>()
@@ -21,6 +22,12 @@ export class TableComponent {
   readonly iconClicked = output<TableRowData>()
   readonly selectAll = output<boolean>()
   readonly triggerSelectAll = input<{ id: number; value: boolean }>()
+
+  // Body scrolls internally (see table.component.scss), so infinite scroll
+  // must watch the tbody element itself rather than an ancestor container.
+  readonly infiniteScrollDistance = input(0.5)
+  readonly infiniteScrollThrottle = input(50)
+  readonly loadMore = output<void>()
 
   public unselectCheckbox(ids: string[]): void {
     ids.forEach((id) => {

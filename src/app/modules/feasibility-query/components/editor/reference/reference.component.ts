@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component, inject, input, OnInit, output } fro
 import { CriteriaSetSearchService } from 'src/app/service/Search/SearchTypes/CriteriaSet/CriteriaSetSearch.service'
 import { Display } from 'src/app/model/DataSelection/Profile/Display'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { InfiniteScrollDirective } from 'ngx-infinite-scroll'
 import { InformationSectionComponent } from '../../../../../shared/components/information-section/information-section.component'
 import { map, Observable } from 'rxjs'
 import { MatTab, MatTabGroup, MatTabLabel } from '@angular/material/tabs'
@@ -42,7 +41,6 @@ interface selectedItem {
     FontAwesomeModule,
     InformationSectionComponent,
     SearchbarComponent,
-    InfiniteScrollDirective,
     TableComponent,
     PlaceholderBoxComponent,
     SelectedReferenceListComponent,

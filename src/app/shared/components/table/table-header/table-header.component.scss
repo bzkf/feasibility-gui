@@ -1,6 +1,9 @@
 .table-header {
   text-align: left;
   padding: 8px;
+  // Extra right padding reserves the same width as tbody's scrollbar
+  // (styles.scss forces a 20px webkit scrollbar), keeping columns aligned.
+  padding-right: 20px;
   border-bottom: 1px solid #f1f2f3;
   font-family: 'Open Sans', sans-serif;
 }
@@ -13,9 +16,12 @@
 
 .sticky-header {
   background-color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+}
+
+tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 }
 
 th {
@@ -27,21 +33,6 @@ th {
   color: #6a7483;
 }
 
-th:nth-child(1) {
-  width: 40%;
-}
-th:nth-child(2) {
-  width: 10%;
-}
-th:nth-child(3) {
-  width: 20%;
-}
-th:nth-child(4) {
-  width: 15%;
-}
-th:nth-child(5) {
-  width: 15%;
-}
 num-checkbox {
   padding-right: 8px;
 }

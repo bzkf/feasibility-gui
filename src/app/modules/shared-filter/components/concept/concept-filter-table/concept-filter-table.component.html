@@ -1,22 +1,16 @@
 <div class="container">
-  <div
-    infiniteScroll
-    [infiniteScrollDistance]="0.5"
-    [infiniteScrollThrottle]="50"
-    [scrollWindow]="false"
-    (scrolled)="loadMoreSearchResults()"
-    style="overflow: auto; height: 100%"
-  >
+  <div style="overflow: auto; height: 100%">
     @if (adaptedData()?.body.rows.length > 0) {
     <num-table
       class="result-list-container"
       [tableData]="adaptedData()"
       (selectedRow)="addSelectedRow($event)"
-    >
-    </num-table>
+      (loadMore)="loadMoreSearchResults()"
+    ></num-table>
     } @if (adaptedData()?.body.rows.length <= 0) {
     <num-placeholder-box class="no-results-text">
-      {{ 'FEASIBILITY.EDITOR.EMPTY' | translate }} "<strong>{{ searchText() }}</strong>
+      {{ 'FEASIBILITY.EDITOR.EMPTY' | translate }} "
+      <strong>{{ searchText() }}</strong>
     </num-placeholder-box>
     }
   </div>

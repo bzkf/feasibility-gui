@@ -97,7 +97,8 @@ export class SimpleResultComponent implements OnInit, OnDestroy {
     this.initializeState()
     this.doSendSusbscription?.unsubscribe()
 
-    this.startExpirationTimer(90 * 1000)
+    const expirationTime = this.appSettingsProviderService.getQueryResultExpiry()
+    this.startExpirationTimer(expirationTime * 1000)
     const obs = this.feasibilityQueryResultService.doSendQueryRequest()
 
     this.doSendSusbscription = this.createDoSendSubscription(obs)
@@ -193,7 +194,7 @@ export class SimpleResultComponent implements OnInit, OnDestroy {
    * If the result array has fewer than 10 digits, pad it with leading '0' digits until its length is 10
    */
   private setPatientCount(totalNumberOfPatients: number): void {
-    const patientCountArray = totalNumberOfPatients.toString().split('')
+    const patientCountArray = totalNumberOfPatients?.toString()?.split('')
     const lengthOfDigitFields = 8
     while (patientCountArray.length < lengthOfDigitFields) {
       patientCountArray.unshift('0')

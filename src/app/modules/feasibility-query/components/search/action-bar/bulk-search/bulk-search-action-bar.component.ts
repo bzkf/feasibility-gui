@@ -1,78 +1,50 @@
-import { Component, OnDestroy, OnInit, inject, input } from '@angular/core'
-import { CreateBulkCriterionService } from 'src/app/service/CreateBulkCriterion.service'
-import { CriteriaBulkEntry } from 'src/app/model/Search/ListEntries/CriteriaBulkEntry'
-import { FeasibilityQueryProviderHub } from 'src/app/service/Provider/FeasibilityQueryProviderHub'
-import { map, Observable, of, Subscription, take } from 'rxjs'
-import { NavigationHelperService } from 'src/app/service/NavigationHelper.service'
-import { SelectedBulkCriteriaProvider } from 'src/app/service/SelectedBulkCriteria.service'
-import { StageProviderService } from 'src/app/service/Provider/StageProvider.service'
 import { ActionBarComponent } from '../../../../../../shared/components/action-bar/action-bar.component'
 import { ButtonComponent } from '../../../../../../shared/components/button/button.component'
+import { Component, computed, inject, input } from '@angular/core'
+import { toSignal } from '@angular/core/rxjs-interop'
+import { CreateBulkCriterionService } from 'src/app/service/CreateBulkCriterion.service'
+import { FeasibilityQueryProviderHub } from 'src/app/service/Provider/FeasibilityQueryProviderHub'
 import { MatTooltip } from '@angular/material/tooltip'
-import { AsyncPipe } from '@angular/common'
+import { NavigationHelperService } from 'src/app/service/NavigationHelper.service'
+import { SelectedBulkCriteriaProvider } from 'src/app/service/SelectedBulkCriteria.service'
 import { TranslateModule } from '@ngx-translate/core'
-import { FeasibilityQueryValidationService } from 'src/app/service/Validation/Internal/FeasibilityQueryValidationService.service'
 
 @Component({
   selector: 'num-bulk-search-action-bar',
   templateUrl: './bulk-search-action-bar.component.html',
   styleUrls: ['./bulk-search-action-bar.component.scss'],
   standalone: true,
-  imports: [ActionBarComponent, ButtonComponent, MatTooltip, AsyncPipe, TranslateModule],
+  imports: [ActionBarComponent, ButtonComponent, MatTooltip, TranslateModule],
 })
-export class BulkSearchActionBarComponent implements OnInit, OnDestroy {
+export class BulkSearchActionBarComponent {
   private selectedBulkCriteriaService = inject(SelectedBulkCriteriaProvider)
-  private stageProviderService = inject(StageProviderService)
   private navigationHelperService = inject(NavigationHelperService)
   private feasibilityQueryProviderHub = inject(FeasibilityQueryProviderHub)
   private createBulkCriterionService = inject(CreateBulkCriterionService)
-
-  listItemArray$: Observable<CriteriaBulkEntry[]>
-  stageArray$: Observable<string[]>
-  disabledAddToStageButton: Observable<boolean> = of(true)
-  addToStageSubscription: Subscription
 
   readonly resultType = input<
     'FOUND' | 'NOTFOUND'
     /** Inserted by Angular inject() migration for backwards compatibility */
   >(undefined)
 
+  private readonly selectedEntries = toSignal(this.selectedBulkCriteriaService.getSelected(), {
+    initialValue: [],
+  })
+
+  readonly disabledAddToStageButton = computed(() => this.selectedEntries().length === 0)
+
   /** Inserted by Angular inject() migration for backwards compatibility */
   constructor(...args: unknown[])
   constructor() {}
 
-  ngOnInit() {
-    this.disabledAddToStageButton = this.selectedBulkCriteriaService
-      .getSelected()
-      .pipe(map((entries) => entries.length === 0))
-    this.listItemArray$ = this.selectedBulkCriteriaService.getSelected()
-    this.stageArray$ = this.stageProviderService.getAll()
-  }
-
-  ngOnDestroy() {
-    this.addToStageSubscription?.unsubscribe()
-  }
-
-  public addItemsToStage() {
-    this.addToStageSubscription?.unsubscribe()
-    this.addToStageSubscription = this.selectedBulkCriteriaService
-      .getSelected()
-      .pipe(
-        take(1),
-        map((entries) => {
-          this.selectedBulkCriteriaService.setSearchResults(entries)
-          this.selectedBulkCriteriaService.deselect(entries)
-          const uiProfileId = this.selectedBulkCriteriaService.getUiProfileId()
-          const criterion = this.createBulkCriterionService.createBulkCriterion(
-            entries,
-            uiProfileId
-          )
-          this.feasibilityQueryProviderHub.addCriteriaToStage([criterion])
-          this.feasibilityQueryProviderHub.addCriteriaToCriterionProvider([criterion])
-          return entries
-        })
-      )
-      .subscribe()
+  public addItemsToStage(): void {
+    const entries = this.selectedEntries()
+    this.selectedBulkCriteriaService.setSearchResults(entries)
+    this.selectedBulkCriteriaService.deselect(entries)
+    const uiProfileId = this.selectedBulkCriteriaService.getUiProfileId()
+    const criterion = this.createBulkCriterionService.createBulkCriterion(entries, uiProfileId)
+    this.feasibilityQueryProviderHub.addCriteriaToStage([criterion])
+    this.feasibilityQueryProviderHub.addCriteriaToCriterionProvider([criterion])
   }
 
   public navigateToEditor(): void {
