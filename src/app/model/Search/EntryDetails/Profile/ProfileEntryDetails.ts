@@ -48,7 +48,6 @@ export class ProfileEntryDetails extends AbstractDetails<ProfileEntryRelative> {
    * @returns {ProfileEntryDetails}
    */
   public static fromJson(json: ProfileEntryDetailsData): ProfileEntryDetails {
-    console.log(json)
     return new ProfileEntryDetails(
       json.id,
       Display.fromJson(json.display),

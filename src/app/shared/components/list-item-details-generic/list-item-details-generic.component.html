@@ -14,13 +14,13 @@
       </div>
 
       <!-- Translations -->
-      @if (data.display?.getTranslations()?.length) {
       <div class="detail-row divider">
         <div class="detail-label num-text-label">
           {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.TRANSLATIONS' | translate }}
         </div>
+        @if (translations().length) {
         <div class="detail-value num-text-body">
-          @for (t of data.display.getTranslations(); track t.getLanguage()) {
+          @for (t of translations(); track t.getLanguage()) {
           <div class="translation-entry">
             <span
               class="fi"
@@ -33,8 +33,13 @@
           </div>
           }
         </div>
+        } @else {
+        <div class="num-text-accent">
+          {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.NO_TRANSLATIONS' | translate }}
+        </div>
+        }
       </div>
-      } @if(data.description) {
+      @if(data.description) {
       <div class="detail-row divider">
         <div class="detail-label num-text-label">
           {{ 'SHARED_COMPONENTS.LIST_ITEM_DETAILS.DESCRIPTION' | translate }}

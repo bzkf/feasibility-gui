@@ -34,6 +34,10 @@ export class ListItemDetailsGenericComponent {
     (this.listItemDetails()?.fields ?? []).map((item) => item.display.getOriginal()).join(', ')
   )
 
+  readonly translations = computed(() =>
+    (this.listItemDetails()?.display?.getTranslations() ?? []).filter((t) => t.getValue())
+  )
+
   public getSelectedRelative(item: ListItemDetailsRelativeData): void {
     this.selectedRelative.emit(item)
   }
