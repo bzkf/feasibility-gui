@@ -5,7 +5,7 @@ import { MatTooltip } from '@angular/material/tooltip'
 import { MenuComponent } from '../../shared-components.module'
 import { MenuItemInterface } from 'src/app/shared/models/Menu/MenuItemInterface'
 import { SearchbarComponent } from '../../search/searchbar.component'
-import { TranslateService, TranslateModule, TranslatePipe } from '@ngx-translate/core'
+import { TranslateService, TranslateModule } from '@ngx-translate/core'
 @Component({
   selector: 'num-list-item-details-generic-sections',
   templateUrl: './list-item-details-generic-sections.component.html',
@@ -19,6 +19,7 @@ export class ListItemDetailsGenericSectionsComponent {
   readonly listItemDetails = input.required<ListItemDetailsRelativeData[]>()
   readonly menuItems = input<MenuItemInterface[]>([])
   readonly selectedRelative = output<ListItemDetailsRelativeData>()
+  readonly showSearch = input(false)
 
   readonly searchText = signal('')
 

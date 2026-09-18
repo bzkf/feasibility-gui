@@ -10,45 +10,8 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.mat-divider {
-  border: 0;
-  border-bottom: 1px solid var(--border-color);
-  width: 100%;
-  height: 24px;
-  align-content: center;
-}
-
-.container {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: var(--color-accent-bg, #f1f2f3);
-  border-radius: var(--border-radius-card);
-  font-family: 'Open Sans', sans-serif;
-}
-
-.entry-layout {
-  border-radius: var(--border-radius-card);
-  padding: 4px 12px;
-  min-height: 48px;
-  height: auto;
-  margin-bottom: 8px;
-  background-color: var(--color-accent-bg);
-  border: 1px solid var(--color-accent-border);
-  box-shadow: var(--shadow-card);
-  color: var(--color-text-primary, #232323);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  &:hover {
-    box-shadow: var(--shadow-card-hover);
-    cursor: pointer;
-  }
+  // Keeps entry content clear of the scrollbar instead of hugging it.
+  padding-right: 8px;
 }
 
 .display-name {
@@ -69,10 +32,4 @@
   white-space: normal;
   word-break: break-word;
   margin-top: 2px;
-}
-
-.text-overflow {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }

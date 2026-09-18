@@ -31,8 +31,10 @@
 }
 
 .original-item {
-  font-size: 16px;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
   padding-bottom: 12px;
 }
 
@@ -42,20 +44,26 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  height: 60%;
+  flex-shrink: 0;
 }
 
 .detail-row.divider {
   border-bottom: 1px solid #f1f2f3;
 }
 
+// Rows holding a nested Parents/Children list size to their own content
+// (so a single relative doesn't stretch and leave a blank gap), but are
+// still allowed to shrink and cap out via .relatives-value below when the
+// list is long, so it scrolls internally instead of pushing other rows down.
+.detail-row.relatives-row {
+  flex-shrink: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+// Typography comes from the shared .num-text-label / .num-text-body classes
+// applied in the template — this only carries the column layout.
 .detail-label {
-  font-family: var(--font-body);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--color-text-primary);
   min-width: 190px;
   max-width: 190px;
   padding-right: 16px;
@@ -64,7 +72,17 @@
 .detail-value {
   flex: 1;
   min-width: 0;
+  max-height: 140px;
   overflow-y: auto;
+}
+
+.detail-value.relatives-value {
+  max-height: min(320px, 45vh);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .translation-entry {

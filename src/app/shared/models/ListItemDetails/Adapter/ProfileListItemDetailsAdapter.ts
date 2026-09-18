@@ -30,6 +30,7 @@ export class ProfileListItemDetailsAdapter extends AbstractListItemDetailsAdapte
       result.fields = this.adaptFields(fields)
     }
 
+    console.log(detailsData.getDescription())
     const description = detailsData.getDescription()
     if (description) {
       result.description = description
