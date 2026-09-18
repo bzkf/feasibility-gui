@@ -593,15 +593,16 @@
     },
     "MENU": {
       "ADD": "Zur Kohortenselektion hinzufügen",
+      "ADD_PROFILE": "Zur Merkmalselektion hinzufügen",
       "APPLY_FILTERS": "Filter anwenden",
       "DEFINE_FIELDS": "Felder selektieren",
       "DELETE": "Löschen",
       "DUPLICATE": "Duplizieren",
-      "EDIT": "Filter setzen",
+      "EDIT": "Konfigurieren",
       "OPTIONS": "Optionen",
       "REFERENCE": "Kriterien verknüpfen",
       "SEARCH": "Als Suchbegriff nutzen",
-      "SEARCH_PROFILE": "Profile als Suchbegriff nutzen",
+      "SEARCH_PROFILE": "Profil als Suchbegriff nutzen",
       "SHOW_CRITERIA": "Kriterium anzeigen",
       "SHOW_PROFILE": "Profil anzeigen"
     },
@@ -637,8 +638,8 @@
       "TITLE": "Titel"
     },
     "SEARCH": {
-      "MIN_LENGTH": "Bitte mindestens drei Buchstaben eingeben",
-      "DEFAULT_LABEL": "Suchtext eingeben"
+      "DEFAULT_LABEL": "Suchtext eingeben",
+      "MIN_LENGTH": "Bitte mindestens drei Buchstaben eingeben"
     },
     "TABLE": {
       "ACTIONS": "Aktionen",
