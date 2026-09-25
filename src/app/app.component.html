@@ -1,1 +1,5 @@
-<num-app-layout></num-app-layout>
+@if (isMaintenanceMode) {
+  <router-outlet />
+} @else {
+  <num-app-layout />
+}

@@ -2,19 +2,17 @@
   "authBaseUrl": "#{auth_baseUrl}",
   "authClientId": "#{auth_clientId}",
   "authRealm": "#{auth_realm}",
-  "authRoles": [
-    "#{auth_roles}"
-  ],
+  "authRoles": ["#{auth_roles}"],
   "backendBaseUrl": "#{uiBackendApi_baseUrl}",
   "legal": {
     "copyrightOwner": "#{legal_copyrightOwner}",
-    "copyrightYear": "2025",
+    "copyrightYear": "2026",
     "email": "#{legal_email}",
     "version": "#{legal_version}"
   },
-  "optionpageroles": [
-    "#{auth_roles}"
-  ],
+  "optionpageroles": ["#{auth_roles}"],
   "showoptionspage": false,
-  "stylesheet": "FDPGTheme"
+  "stylesheet": "FDPGTheme",
+  "maintenanceMode": "#{maintenance_mode}",
+  "maintenanceEndDate": "#{maintenance_end_date}"
 }

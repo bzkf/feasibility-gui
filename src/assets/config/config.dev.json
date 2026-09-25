@@ -7,5 +7,7 @@
   "copyrightYear": "2026",
   "email": "owrdp@bzkf.de",
   "stylesheet": "FDPGTheme",
-  "version": "7.2.0"
+  "version": "7.2.0",
+  "maintenanceMode": true,
+  "maintenanceEndDate": "2026-09-25T18:00:00+02:00"
 }

@@ -208,4 +208,12 @@ export class AppSettingsProviderService implements AppSettingGetter {
     const duration = iso8601.parse(this.getDataPortalConfigByKey('queryResultExpiry'))
     return iso8601.toSeconds(duration)
   }
+
+  public getMaintenanceMode(): boolean {
+    return this.getAppConfigSettingByKey('maintenanceMode') ?? false
+  }
+
+  public getMaintenanceEndDate(): string {
+    return this.getAppConfigSettingByKey('maintenanceEndDate') ?? ''
+  }
 }

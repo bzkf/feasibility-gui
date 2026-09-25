@@ -1,3 +1,4 @@
+import { MaintenanceModeService } from './core/settings/MaintenanceMode.service'
 import { ActuatorApiService } from './service/Backend/Api/ActuatorApi.service'
 import { ActuatorInformationService } from './service/Actuator/ActuatorInformation.service'
 import { AppConfigData } from './config/model/AppConfig/AppConfigData'
@@ -30,6 +31,7 @@ export class CoreInitService {
   private terminologyApiService = inject(TerminologyApiService)
   private uiProfileProviderService = inject(UiProfileProviderService)
   private actuatorInformationService = inject(ActuatorInformationService)
+  private maintenanceModeService = inject(MaintenanceModeService)
 
   /** Inserted by Angular inject() migration for backwards compatibility */
   constructor(...args: unknown[])
@@ -45,23 +47,33 @@ export class CoreInitService {
    */
   public init(): Observable<AppConfigData> {
     return this.loadAppConfig().pipe(
-      concatMap(() => this.initOAuth()),
-      concatMap(() => this.loadDataportalSettings()),
-      concatMap(() => this.initUserProfile()),
-      concatMap(() => this.checkBackendHealth()),
-      concatMap(() => this.getUiProfilesData()),
-      concatMap(() => this.loadActuatorInformation()),
-      concatMap(() => this.initTerminologySystems()),
-      concatMap(() =>
-        this.initPatientProfile().pipe(map((patientProfileResult) => ({ patientProfileResult })))
-      ),
-      concatMap(({ patientProfileResult }) => this.initializeProviders(patientProfileResult)),
+      concatMap((config) => {
+        if (this.maintenanceModeService.isMaintenanceMode()) {
+          return of(config)
+        }
+
+        return this.initOAuth().pipe(
+          concatMap(() => this.loadDataportalSettings()),
+          concatMap(() => this.initUserProfile()),
+          concatMap(() => this.checkBackendHealth()),
+          concatMap(() => this.getUiProfilesData()),
+          concatMap(() => this.loadActuatorInformation()),
+          concatMap(() => this.initTerminologySystems()),
+          concatMap(() =>
+            this.initPatientProfile().pipe(
+              map((patientProfileResult) => ({ patientProfileResult }))
+            )
+          ),
+          concatMap(({ patientProfileResult }) => this.initializeProviders(patientProfileResult)),
+          map(() => config)
+        )
+      }),
       tap(() => console.log('CoreInitService complete')),
       catchError((err) => {
         console.error('CoreInitService failed:', err)
         return throwError(() => err)
       })
-    ) as Observable<AppConfigData>
+    )
   }
 
   /**
@@ -70,13 +82,18 @@ export class CoreInitService {
    */
   private loadAppConfig(): Observable<AppConfigData> {
     return this.appConfigService.loadAppConfig().pipe(
-      tap((config) => console.log('AppConfig loaded:', !!config)),
+      tap((config) => {
+        console.log('AppConfig loaded:', !!config)
+        this.maintenanceModeService.setMaintenanceMode(config.maintenanceMode)
+        this.maintenanceModeService.setMaintenanceEndDate(config.maintenanceEndDate || null)
+      }),
       catchError((err) => {
         console.error('Config load failed:', err)
         return throwError(() => err)
       })
     )
   }
+
 
   /**
    * Loads the dataportal settings from the backend.

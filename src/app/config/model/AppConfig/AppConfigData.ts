@@ -62,4 +62,16 @@ export interface AppConfigData {
    * Used to set the initial look and feel of the user interface.
    */
   readonly stylesheet: string
+
+  /**
+   * Status of maintenance. If this value is set to true a maintenance site is shown.
+   * Used to perform maintenance on the backend and keeping the user informed.
+   */
+  readonly maintenanceMode: boolean
+
+  /**
+   * Status information for end of the maintenance mode.
+   * Used to inform the user of the planned end of the maintenance
+   */
+  readonly maintenanceEndDate: string | null
 }

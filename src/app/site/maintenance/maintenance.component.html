@@ -1,0 +1,36 @@
+<div class="maintenance">
+  <div class="maintenance__content">
+    <div class="maintenance__language">
+      <h1>Wartungsarbeiten</h1>
+
+      <p>
+        Aktuell werden an BOARD Wartungsarbeiten durchgeführt.
+      </p>
+
+      @if (maintenanceEndDate) {
+        <p>
+          BOARD ist voraussichtlich ab dem
+          <strong>{{ maintenanceEndDate | date: 'dd.MM.yyyy' }}</strong>
+          um
+          <strong>{{ maintenanceEndDate | date: 'HH:mm' }} Uhr</strong>
+          wieder verfügbar.
+        </p>
+      }
+    </div>
+
+    <div class="maintenance__language maintenance__language--english">
+      <h1>Maintenance</h1>
+
+      <p>
+        We are currently performing maintenance on the BOARD platform.
+      </p>
+
+      @if (maintenanceEndDate) {
+        <p>
+          BOARD is expected to be back online by
+          <strong>{{ maintenanceEndDate | date: 'medium' }}</strong>.
+        </p>
+      }
+    </div>
+  </div>
+</div>
